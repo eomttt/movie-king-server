@@ -1,0 +1,11 @@
+{
+  "name": "movie-king-server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/eomttt/movie-king-server.git",
+  "author": "eomttt <hyunt0413@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "graphql-yoga": "^1.18.3"
+  }
+}
