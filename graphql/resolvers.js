@@ -1,6 +1,8 @@
+import people from '../dummy/people';
+
 const resolvers = {
     Query: {
-        name:() => "Eomttt"
+        people:() => people
     }
 }
 
