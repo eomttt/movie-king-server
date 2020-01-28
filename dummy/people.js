@@ -37,4 +37,8 @@ const people = [
     }
 ];
 
+export const getPerson = (id) => {
+    return people.filter((person) => person.id === id)[0];
+}
+
 export default people;

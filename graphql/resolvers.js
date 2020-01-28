@@ -1,8 +1,9 @@
-import people from '../dummy/people';
+import people, { getPerson } from '../dummy/people';
 
 const resolvers = {
     Query: {
-        people:() => people
+        people:() => people,
+        person: (_, { id }) => getPerson(id)
     }
 }
 
