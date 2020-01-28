@@ -41,4 +41,17 @@ export const getPerson = (id) => {
     return people.filter((person) => person.id === id)[0];
 }
 
+export const addPerson = (name, age, gender) => {
+    const newPerson = {
+        id: String(people.length),
+        name,
+        age,
+        gender,   
+    };
+
+    people.push(newPerson);
+
+    return newPerson;
+}
+
 export default people;
