@@ -1,4 +1,4 @@
-const people = [
+let people = [
     {
         id: '1',
         name: 'person_1',
@@ -37,6 +37,10 @@ const people = [
     }
 ];
 
+export const getPeople = () => {
+    return people;
+}
+
 export const getPerson = (id) => {
     return people.filter((person) => person.id === id)[0];
 }
@@ -52,6 +56,17 @@ export const addPerson = (name, age, gender) => {
     people.push(newPerson);
 
     return newPerson;
+}
+
+export const deletePerson = (id) => {
+    const isIncludePerson = people.map((person) => person.id).includes(id);
+    if (isIncludePerson) {
+        people = people.filter((person) => {
+            return person.id !== id;
+        });
+        return true;
+    }
+    return false;
 }
 
 export default people;
