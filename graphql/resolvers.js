@@ -1,14 +1,17 @@
-import { getPeople, getPerson, addPerson, deletePerson } from '../dummy/people';
+const { getPeople, getPerson, addPerson, deletePerson } = require('../dummy/people');
+const { getMovies, getMovie } = require('../controller/test-movie.controller');
 
 const resolvers = {
     Query: {
         people: () => getPeople(),
-        person: (_, { id }) => getPerson(id)
+        person: (_parent, { id }) => getPerson(id),
+        movies: (_parent, { limit, rating }) => getMovies(limit, rating),
+        movie: (_parent, { id }) => getMovie(id),
     },
     Mutation: {
-        addPerson: (_, { name, age, gender }) => addPerson(name, age, gender),
-        deletePerson: (_, { id }) => deletePerson(id)
+        addPerson: (_parent, { name, age, gender }) => addPerson(name, age, gender),
+        deletePerson: (_parent, { id }) => deletePerson(id)
     }
 }
 
-export default resolvers;
+module.exports.resolvers = resolvers;

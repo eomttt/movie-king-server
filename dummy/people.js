@@ -37,15 +37,15 @@ let people = [
     }
 ];
 
-export const getPeople = () => {
+module.exports.getPeople = () => {
     return people;
 }
 
-export const getPerson = (id) => {
+module.exports.getPerson = (id) => {
     return people.filter((person) => person.id === id)[0];
 }
 
-export const addPerson = (name, age, gender) => {
+module.exports.addPerson = (name, age, gender) => {
     const newPerson = {
         id: String(people.length),
         name,
@@ -58,7 +58,7 @@ export const addPerson = (name, age, gender) => {
     return newPerson;
 }
 
-export const deletePerson = (id) => {
+module.exports.deletePerson = (id) => {
     const isIncludePerson = people.map((person) => person.id).includes(id);
     if (isIncludePerson) {
         people = people.filter((person) => {
@@ -69,4 +69,4 @@ export const deletePerson = (id) => {
     return false;
 }
 
-export default people;
+module.exports.people = people;
