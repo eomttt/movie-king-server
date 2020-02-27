@@ -27,7 +27,7 @@ const getMovie = async (id) => {
   const { movie } = res.data.data;
 
   return movie
-}
+};
 
 module.exports.getMovies = getMovies;
 module.exports.getMovie = getMovie;
