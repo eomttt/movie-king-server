@@ -26,7 +26,10 @@ const getMovie = async (id) => {
 
   const { movie } = res.data.data;
 
-  return movie
+  return {
+    ...movie,
+    summary: movie.description_full
+  }
 };
 
 module.exports.getMovies = getMovies;
