@@ -14,14 +14,20 @@ const axios = require('axios');
 
 const BASE_URL = 'https://45w5vsjd0b.execute-api.ap-northeast-2.amazonaws.com/v1/movieCrawling';
 
+// This api need key
 axios.defaults.headers.common['x-api-key'] = '';
 
 const getRegion = async (theaterType) => {
-  const res = await axios.get(`${BASE_URL}?theater=${theaterType}&request=region`);
-  return res.data;
+  try {
+    const res = await axios.get(`${BASE_URL}?theater=${theaterType}&request=region`);
+    return res.data;
+  } catch (error) {
+    const { response } = error;
+    console.log('Get region error message.', response.data.message);
+  }
 }
 
-const getTimeTable = async (theaterType) => {
+const getTimeTable = async (theaterType, theaterLink) => {
   const res = await axios.get(`${BASE_URL}?theater=${theaterType}x&request=region`);
   console.log("Res", res.data);
 };
