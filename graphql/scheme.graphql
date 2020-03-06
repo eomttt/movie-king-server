@@ -1,8 +1,9 @@
 type Query {
   people: [Person]!
   person(id: String!): Person!
-  movies(limit: Int, rating: Float): [Movie]!
-  movie(id: Int!): Movie!
+  testMovies(limit: Int, rating: Float): [TestMovie]!
+  testMovie(id: Int!): TestMovie!
+  region(type: String!): [String]!
 }
 
 type Mutation {
@@ -17,7 +18,7 @@ type Person {
   gender: String!
 }
 
-type Movie {
+type TestMovie {
   id: Int!
   title: String!
   summary: String!
