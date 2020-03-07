@@ -4,6 +4,7 @@ type Query {
   testMovies(limit: Int, rating: Float): [TestMovie]!
   testMovie(id: Int!): TestMovie!
   region(type: String!): [String]!
+  timeTable(type: String!, theaterInfo: String!): [MovieTimeTable]!
 }
 
 type Mutation {
@@ -23,4 +24,13 @@ type TestMovie {
   title: String!
   summary: String!
   rating: Float!
+}
+
+type MovieTimeTable {
+  title: String!
+  timeInfo: [MovieTimeInfo]!
+}
+
+type MovieTimeInfo {
+  time: String!
 }

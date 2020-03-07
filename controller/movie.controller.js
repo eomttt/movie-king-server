@@ -19,7 +19,7 @@ axios.defaults.headers.common['x-api-key'] = '';
 
 const getRegion = async (theaterType) => {
   try {
-    const res = await axios.get(`${BASE_URL}?theater=${theaterType}&request=region`);
+    const res = await axios.get(`${BASE_URL}?request=region&theater=${theaterType}`);
     return res.data;
   } catch (error) {
     const { response } = error;
@@ -27,9 +27,14 @@ const getRegion = async (theaterType) => {
   }
 }
 
-const getTimeTable = async (theaterType, theaterLink) => {
-  const res = await axios.get(`${BASE_URL}?theater=${theaterType}x&request=region`);
-  console.log("Res", res.data);
+const getTimeTable = async (theaterType, theaterInfo) => {
+  try {
+    const res = await axios.get(`${BASE_URL}?request=timetable&theater=${theaterType}&theaterLink=${encodeURI(theaterInfo)}`);
+    return res.data;
+  } catch (error) {
+    const { response } = error;
+    console.log('Get timeTable error message.', response.data.message);
+  }
 };
 
 module.exports.getRegion = getRegion;
