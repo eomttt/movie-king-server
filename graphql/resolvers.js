@@ -1,6 +1,6 @@
 const { getPeople, getPerson, addPerson, deletePerson } = require('../dummy/people');
 const { getMovies, getMovie } = require('../controller/test-movie.controller');
-const { getRegion, getTimeTable } = require('../controller/movie.controller');
+const { getRegion, getTimeTable, getBoxOffice } = require('../controller/movie.controller');
 
 const resolvers = {
     Query: {
@@ -10,6 +10,7 @@ const resolvers = {
         testMovie: (_parent, { id }) => getMovie(id),
         region: (_parent, { type }) => getRegion(type),
         timeTable: (_parent, { type, theaterInfo }) => getTimeTable(type, theaterInfo),
+        boxOffice: () => getBoxOffice(),
     },
     Mutation: {
         addPerson: (_parent, { name, age, gender }) => addPerson(name, age, gender),

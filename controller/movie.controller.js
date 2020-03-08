@@ -37,5 +37,16 @@ const getTimeTable = async (theaterType, theaterInfo) => {
   }
 };
 
+const getBoxOffice = async () => {
+  try {
+    const res = await axios.get(`${BASE_URL}?request=box-office&theater=cgv`);
+    return res.data;
+  } catch (error) {
+    const { response } = error;
+    console.log('Get boxoffice error message.', response.data.message);
+  }
+}
+
 module.exports.getRegion = getRegion;
 module.exports.getTimeTable = getTimeTable;
+module.exports.getBoxOffice = getBoxOffice;

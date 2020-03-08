@@ -5,6 +5,7 @@ type Query {
   testMovie(id: Int!): TestMovie!
   region(type: String!): [String]!
   timeTable(type: String!, theaterInfo: String!): [MovieTimeTable]!
+  boxOffice: [MovieBoxOffice]! 
 }
 
 type Mutation {
@@ -33,4 +34,8 @@ type MovieTimeTable {
 
 type MovieTimeInfo {
   time: String!
+}
+
+type MovieBoxOffice {
+  title: String!
 }
