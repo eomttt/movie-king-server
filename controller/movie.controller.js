@@ -11,11 +11,12 @@
  */
 
 const axios = require('axios');
+const { key } = require('../.api-key');
 
 const BASE_URL = 'https://45w5vsjd0b.execute-api.ap-northeast-2.amazonaws.com/v1/movieCrawling';
 
 // This api need key
-axios.defaults.headers.common['x-api-key'] = '';
+axios.defaults.headers.common['x-api-key'] = key;
 
 const getRegion = async (theaterType) => {
   try {
