@@ -47,7 +47,7 @@ module.exports.getPerson = (id) => {
 
 module.exports.addPerson = (name, age, gender) => {
     const newPerson = {
-        id: String(people.length),
+        id: String(people.length + 1),
         name,
         age,
         gender,   
