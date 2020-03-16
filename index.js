@@ -16,6 +16,7 @@ const options = {
     subscriptions: '/subscriptions',
     playground: '/playground',
 }
+
 server.start(options, ({ port }) =>
   console.log(
     `Server started, listening on port ${port} for incoming requests.`,
