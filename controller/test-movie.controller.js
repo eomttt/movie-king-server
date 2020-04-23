@@ -3,7 +3,6 @@ const axios = require('axios');
 const BASE_URL = "https://yts-proxy.now.sh/";
 const LIST_MOVIES_URL = `${BASE_URL}list_movies.json`;
 const MOVIE_DETAILS_URL = `${BASE_URL}movie_details.json`;
-const MOVIE_SUGGESTIONS_URL = `${BASE_URL}movie_suggestions.json`;
 
 const getMovies = async (limit, rating) => {
   const res = await axios.get(LIST_MOVIES_URL, {
