@@ -4,6 +4,38 @@
 + Make GraphQL server
 + Lecture [Nomad Coders](https://www.youtube.com/watch?v=dGB0m7agxKE&list=PL7jH19IHhOLOpU_yAYzCO4iQNvdou1AnK&index=2)
 
+## Query
+```js
+// BoxOffice
+query {
+  boxOffice {
+    image,
+    title
+  }
+}
+
+// Region
+query {
+  region(type: "megaBox" | "cgv" | "lotte")
+}
+
+// TheaterInfo
+query {
+  theaterInfo(
+    type: "megaBox" | "cgv" | "lotte",
+    regionIndex: "0",
+  )
+}
+
+// TimeTable
+query {
+  timeTable(
+    type: "megaBox" | "cgv" | "lotte",
+    theaterLink: "",
+  )
+}
+````
+
 ## Test
 + Query Test
 ![alt query test](https://d39c58j2fkj161.cloudfront.net/query-test.png)

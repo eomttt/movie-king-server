@@ -4,7 +4,8 @@ type Query {
   testMovies(limit: Int, rating: Float): [TestMovie]!
   testMovie(id: Int!): TestMovie!
   region(type: String!): [String]!
-  timeTable(type: String!, theaterInfo: String!): [MovieTimeTable]!
+  theaterInfo(type: String!, regionIndex: String!): [MovieTheatersInfo]!
+  timeTable(type: String!, theaterLink: String!): [MovieTimeTable]!
   boxOffice: [MovieBoxOffice]! 
 }
 
@@ -25,6 +26,11 @@ type TestMovie {
   title: String!
   summary: String!
   rating: Float!
+}
+
+type MovieTheatersInfo {
+  title: String!
+  link: String!
 }
 
 type MovieTimeTable {

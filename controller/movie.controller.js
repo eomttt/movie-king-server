@@ -28,9 +28,19 @@ const getRegion = async (theaterType) => {
   }
 }
 
-const getTimeTable = async (theaterType, theaterInfo) => {
+const getTheaterInfo = async (theaterType, theaterRegionIndex) => {
   try {
-    const res = await axios.get(`${BASE_URL}?request=timetable&theater=${theaterType}&theaterLink=${encodeURI(theaterInfo)}`);
+    const res = await axios.get(`${BASE_URL}?request=theaters&theater=${theaterType}&regionIndex=${theaterRegionIndex}`);
+    return res.data;
+  } catch (error) {
+    const { response } = error;
+    console.log('Get theaterInfo error message.', response.data.message);
+  }
+}
+
+const getTimeTable = async (theaterType, theaterLink) => {
+  try {
+    const res = await axios.get(`${BASE_URL}?request=timetable&theater=${theaterType}&theaterLink=${encodeURI(theaterLink)}`);
     return res.data;
   } catch (error) {
     const { response } = error;
@@ -50,4 +60,5 @@ const getBoxOffice = async () => {
 
 module.exports.getRegion = getRegion;
 module.exports.getTimeTable = getTimeTable;
+module.exports.getTheaterInfo = getTheaterInfo;
 module.exports.getBoxOffice = getBoxOffice;
