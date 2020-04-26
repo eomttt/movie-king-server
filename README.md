@@ -32,6 +32,9 @@ query {
   timeTable(
     type: "megaBox" | "cgv" | "lotte",
     theaterLink: "",
+    // ex: megabox: /theater/time?brchNo=1372(강남)
+    // ex: cgv: /theaters/?theaterCode=0056(강남)
+    // ex: lotte: 강남
   )
 }
 ````
