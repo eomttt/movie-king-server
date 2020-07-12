@@ -34,7 +34,7 @@ query {
     theaterLink: "",
     // ex: megabox: /theater/time?brchNo=1372(강남)
     // ex: cgv: /theaters/?theaterCode=0056(강남)
-    // ex: lotte: https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&detailDivisionCode=1&cinemaID=1013 
+    // ex: lotte: '영화관 이름' (Naver 검색을 사용하기 때문)
   )
 }
 ````
