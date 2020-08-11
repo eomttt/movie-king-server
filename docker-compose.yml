@@ -1,5 +1,4 @@
 version: '3.7'
-
 services:
   moviekings:
     image: node:12
@@ -7,14 +6,11 @@ services:
     volumes:
       - type: bind
         source: .
-        target: /moviekings
+        target: /moviekingserver
       - type: volume
         source: node_modules
-        target: /moviekings/node_modules
-        volume:
-          nocopy: true
-    working_dir: /moviekings
-    init: true
+        target: /moviekingserver/node_modules
+    working_dir: /moviekingserver
     command: >
       sh -c "yarn install --frozen-lockfile &&
              node index.js"
